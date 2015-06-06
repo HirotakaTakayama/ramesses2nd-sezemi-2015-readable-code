@@ -13,5 +13,4 @@ void print_recipes(Recipe recipes[], int num)
 		printf("%d: ", recipes[i].id);
 		printf("%s\n", recipes[i].name);
 	}
-
 }

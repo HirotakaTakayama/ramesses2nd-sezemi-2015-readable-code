@@ -40,15 +40,14 @@ int main(int argc, char *argv[])
 	{
 		// レシピにidを追加し、名前をコピー、配列に格納
 		recipe_tmp.id = recipe_id;
-		recipe_tmp.name = (char *)malloc(sizeof(char) * strlen(str));
-		strcpy(recipe_tmp.name, str);
+		recipe_tmp.name = (char *)malloc(sizeof(char) * strlen(str-1));
+		strncpy(recipe_tmp.name, str, strlen(str)-1);
 		recipes[recipe_id] = recipe_tmp;
 		
 		recipe_id++;
 	}
-	printf("\n"); //見やすさのため最後に改行を追加
-
-	print_recipes(recipes, 2);
+	
+	print_recipes(recipes, recipe_id); //ここでrecipe_idは配列の数に相当
 
 	fclose(fp);
 
